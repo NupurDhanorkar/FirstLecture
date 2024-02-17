@@ -1,1 +1,25 @@
-hi I am nupur
+create table product
+(
+prodid number(5) primary key,
+proname varchar2(20) not null,
+prodprice number(5) check(prodprice > 0),
+prodqty number(5) check(prodqty>0),
+prodcat char(10) default 'books'
+)
+
+create table dept
+(
+deptno number(5) constraint dept_deptno_pk primary key,
+dname varchar2(20) not null,
+loc varchar2(20)
+);
+
+create table Employee1
+(
+empno number(6) constraint emp_empno_pk primary key,
+ename varchar2(30),
+grade char(2),
+dob Date,
+deptno number(2) references dept(deptno)
+);
+
